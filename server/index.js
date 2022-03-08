@@ -9,7 +9,8 @@ app.use(express.json());
 
 //ROUTES
 
-//create a contact form submissions
+//CONTACT FORM
+//create a contact form submission
 app.post ('/contactForms', async (req, res) => {
   try {
     const {first_name, last_name, email, title, message } = req.body;
@@ -69,6 +70,43 @@ app.delete('/contactForms/:id', async (req, res) => {
       [id]
     );
     res.json('contact form was deleted');
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+//Lorem Ipsum Content
+//get all h1
+app.get('/headingOne', async (req, res) => {
+  try {
+    const allHeadingOnes = await pool.query(
+      "SELECT * FROM headingone"
+    );
+    res.json(allHeadingOnes.rows);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+//get all h2
+app.get('/headingTwo', async (req, res) => {
+  try {
+    const allHeadingTwos = await pool.query(
+      "SELECT * FROM headingtwo"
+    );
+    res.json(allHeadingTwos.rows);
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+//get all paragraphs
+app.get('/paragraph', async (req, res) => {
+  try {
+    const allParagraphs = await pool.query(
+      "SELECT * FROM paragraph"
+    );
+    res.json(allParagraphs.rows);
   } catch (err) {
     console.log(err.message);
   }
