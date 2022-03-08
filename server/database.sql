@@ -8,3 +8,18 @@ CREATE TABLE contactform(
   title VARCHAR NOT NULL,
   message VARCHAR NOT NULL
 );
+
+CREATE TABLE headingone(
+  lorem_id SERIAL PRIMARY KEY,
+  lorem_heading_one TEXT
+);
+
+CREATE TABLE headingtwo(
+  lorem_id SERIAL PRIMARY KEY,
+  lorem_heading_two TEXT
+);
+
+CREATE TABLE paragraph(
+  lorem_id SERIAL PRIMARY KEY,
+  lorem_paragraph TEXT
+);
